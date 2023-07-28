@@ -35,5 +35,24 @@ import java.util.List;
             }
             return c;
         }
+
+        @Override
+        public Course addCourse(Course course) {
+           list.add(course);
+            return course;
+        }
+
+        public Course updateCourse(long courseId, Course updatedCourse) {
+            // Find the course with the given courseId
+            Course existingCourse = getCourse(courseId);
+
+            if (existingCourse != null) {
+                // Update the existing course with the new information
+                existingCourse.setTitle(updatedCourse.getTitle());
+                existingCourse.setDescription(updatedCourse.getDescription());
+            }
+
+            return existingCourse;
+        }
     }
 
